@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 
 #Bot token @Botfather
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "6959922555:AAH7_2hhwONjHG8UqoS2hIjCl7Mg9iAfHvw")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "7223199796:AAGk6Jc1HJ9h6uIvwAyjWetf8vxH3pAnWxM")
 
 #Your API ID from my.telegram.org
 APP_ID = int(os.environ.get("APP_ID", "25839862"))
