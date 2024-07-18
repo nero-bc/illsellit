@@ -16,7 +16,7 @@ APP_ID = int(os.environ.get("APP_ID", "25839862"))
 API_HASH = os.environ.get("API_HASH", "ef417c527eae44d9ddb662743fbbedcc")
 
 #Your db channel Id
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002176240841"))
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002030156196"))
 
 #OWNER ID
 OWNER_ID = int(os.environ.get("OWNER_ID", "7148126384"))
@@ -29,7 +29,7 @@ DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://rohitplayer87089:rohit870
 DB_NAME = os.environ.get("DATABASE_NAME", "@FilesStoringBot")
 
 #force sub channel id, if you want enable force sub
-FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002001392051"))
+FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002191480981"))
 
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
@@ -37,7 +37,7 @@ TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 START_MSG = os.environ.get("START_MESSAGE", "Hello {first}\n\nI can store private files in Specified Channel and other users can access it from special link.")
 try:
     ADMINS=[]
-    for x in (os.environ.get("ADMINS", "5149937796").split()):
+    for x in (os.environ.get("ADMINS", "7148126384").split()):
         ADMINS.append(int(x))
 except ValueError:
         raise Exception("Your Admins list does not contain valid integers.")
