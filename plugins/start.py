@@ -238,20 +238,25 @@ async def list_premium_users_command(client, message):
     premium_users = collection.find({})
     premium_user_list = ['Premium Users in database:']
 
-    for user in premium_users:
+        for user in premium_users:
         user_ids = user["user_id"]
-        user_info = await client.get_users(user_ids)
-        username = user_info.username
-        first_name = user_info.first_name
-        expiration_timestamp = user["expiration_timestamp"]
-        xt = (expiration_timestamp-(time.time()))
-        x = round(xt/(24*60*60))
-        premium_user_list.append(f"UseriD- <code>{user_ids}</code>\nUser- @{username}\nName- <code>{first_name}</code>\nExpiry- {x} days")
+        try:
+            user_info = await client.get_users(user_ids)
+            username = user_info.username
+            first_name = user_info.first_name
+            expiration_timestamp = user["expiration_timestamp"]
+            xt = (expiration_timestamp - time.time())
+            x = round(xt / (24 * 60 * 60))
+            premium_user_list.append(f"UserID- <code>{user_ids}</code>\nUser- @{username}\nName- <code>{first_name}</code>\nExpiry- {x} days")
+        except PeerIdInvalid:
+            premium_user_list.append(f"UserID- <code>{user_ids}</code>\nUser- <code>Invalid ID</code>\nName- <code>Unknown</code>\nExpiry- <code>N/A</code>")
+        except Exception as e:
+            premium_user_list.append(f"UserID- <code>{user_ids}</code>\nUser- <code>Error: {str(e)}</code>\nName- <code>Unknown</code>\nExpiry- <code>N/A</code>")
 
     if premium_user_list:
         formatted_list = [f"{user}" for user in premium_user_list]
         await message.reply_text("\n\n".join(formatted_list))
     else:
-        await message.reply_text("i found 0 premium users in my db")
+        await message.reply_text("I found 0 premium users in my DB")
 
 # Don't remove This Line From Here. Tg: @im_piro | @PiroHackz
